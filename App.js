@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 export default function App() {
   return (
-    <View style={estilos.teladeCadastro}>
+    <View style={estilos.telaDeCadastro}>
 
       <Text style={estilos.cadastro}>Faça o seu cadastro</Text>
 
@@ -12,7 +12,7 @@ export default function App() {
       <TextInput style={estilos.email} placeholder='Digite o seu email'> </TextInput>
       <TextInput style={estilos.nome} placeholder='Digite o seu nome de usuário'> </TextInput>
       <TextInput style={estilos.senha} placeholder='Digite o seu a sua senha'> </TextInput>
-      <Button color={black} title='Finalizar Cadastro'></Button>
+      <Button style={estilos.botao} color={black} title='Finalizar Cadastro'></Button>
       </View>
 
     </View>
@@ -21,5 +21,26 @@ export default function App() {
 
 const estilos = StyleSheet.create({
 
+telaDeCadastro:{
 
+},
+
+cadastro:{
+
+},
+
+email:{
+
+},
+
+nome:{
+
+},
+
+senha:{
+
+},
+botao:{
+
+}
 });
