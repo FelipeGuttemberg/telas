@@ -11,10 +11,11 @@ export default function App() {
       <View>
       <TextInput style={estilos.email} placeholder='Digite o seu email'/> 
       <TextInput style={estilos.nome} placeholder='Digite o seu nome de usuário'/> 
-      <TextInput style={estilos.senha} placeholder='Digite o seu a sua senha'/> 
-      <Button style={estilos.botao} color='black' title='Finalizar Cadastro'></Button>
+      <TextInput style={estilos.senha} placeholder='Digite a sua senha'/> 
+      <TextInput style={estilos.confirmarSenha} placeholder='Confirme a sua senha' />
+      <Button style={estilos.botao} color='black' title='Finalizar cadastro'></Button>
+      <Button style={estilos.botaoVoltar} color='black' title='Voltar para a tela inicial'></Button>
       </View>
-
     </View>
   );
 }
@@ -23,7 +24,8 @@ const estilos = StyleSheet.create({
 
 telaDeCadastro:{
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: 'blueskyblue'
 },
 
 cadastro:{
@@ -41,7 +43,16 @@ nome:{
 senha:{
 
 },
+
+confirmarSenha:{
+
+},
+
 botao:{
+
+},
+
+botaoVoltar:{
 
 }
 });
