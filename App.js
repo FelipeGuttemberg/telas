@@ -1,58 +1,103 @@
-import { StyleSheet, Text, View, TextInput, Button,} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Pressable,} from 'react-native';
 import React from 'react';
 import { useState } from 'react';
+import {Link} from 'expo-router';
 
 export default function App() {
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [mostrar, setMostrar] = useState('');
+
   return (
-    <View style={estilos.telaDeCadastro}>
+  <View style={styles.container}>
 
-      <Text style={estilos.cadastro}>Faça o seu cadastro</Text>
+    <View style={styles.titulo}>
 
-      <View>
-      <TextInput style={estilos.email} placeholder='Digite o seu email'/> 
-      <TextInput style={estilos.nome} placeholder='Digite o seu nome de usuário'/> 
-      <TextInput style={estilos.senha} placeholder='Digite a sua senha'/> 
-      <TextInput style={estilos.confirmarSenha} placeholder='Confirme a sua senha' />
-      <Button style={estilos.botao} color='black' title='Finalizar cadastro'></Button>
-      <Button style={estilos.botaoVoltar} color='black' title='Voltar para a tela inicial'></Button>
-      </View>
+    <Text style={styles.texto}>Nome do Aplicativo</Text>
+
     </View>
+
+    <View style={styles.main}>
+
+    <TextInput style={styles.input} placeholder='Digite seu email ou nome de usuário'
+    onChangeText={(texto) => setEmail(texto)}
+    defaultValue={email}
+    />
+
+    <TextInput style={styles.input} placeholder='Digite a sua senha'
+    onChangeText={(texto) => setSenha(texto)}
+    defaultValue={senha}
+    />
+    </View>
+
+    <Text style={styles.entrar}> Entrar </Text>
+
+    <View style={styles.footer}>
+
+    <Pressable style={style.esqueceuSenha} onPress={onPressFunction}> <Text>Esqueceu sua senha?</Text> </Pressable>
+
+    <Pressable style={style.cad} onPress={onPressFunction}> <Text> Cadastre-se </Text>  </Pressable>
+
+    </View>
+
+  </View>
   );
 }
 
 const estilos = StyleSheet.create({
-
-telaDeCadastro:{
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: 'blueskyblue'
+container: {
+  flex: 1,
+  backgroundColor: 'white',
+  //alignItems: 'center',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  padding: 20,
+  borderWidth: 3
 },
-
-cadastro:{
-  
+titulo: {
+  alignItems: 'center', 
 },
-
-email:{
-
+texto: {
+  fontSize: 30,
+  textAlign: 'center'
 },
-
-nome:{
-
+main: {
+  flex: 1,
+  flexDirection: 'column',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+  gap: 1,
+  margin: 170
 },
-
-senha:{
-
+input: {
+  borderWidth: 3,
+  padding: 10,
+  borderRadius: 10,
+  width: 300
 },
-
-confirmarSenha:{
-
+entrar: {
+  borderWidth: 3,
+  padding: 10,
+  borderRadius:10,
+  textAlign: 'center',
+  width: 125,
+  margin: 11,
+  borderColor:'white',
+  backgroundColor: 'black',
+  color: 'white'
 },
-
-botao:{
-
+footer: {
+  alignItems: 'center',
+  flexDirection: 'column',
+  justifyContent: 'space-around',
+  gap: 7,
+  margin: 9,
+  width:200
 },
-
-botaoVoltar:{
-
+esqueceuSenha: {
+  margin: 10
+},
+cad:{
+  margin: 3 
 }
 });
