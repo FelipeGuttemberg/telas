@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
-import { Button,Text,TextInput,View,StyleSheet,Pressable, onPressFunction} from 'react-native';
+import { Button,Text,TextInput,View,StyleSheet,Pressable, TouchableOpacity} from 'react-native';
 import {Link} from 'expo-router';
 
 const App = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [mostrar, setMostrar] = useState('');
+
+  const handleLogin = () => {
+    // Verificar as credenciais do usuário e redirecionar para a próxima tela
+  };
+
+    const onpressHandler = () => {
+      console.log( 'Botão pressionado');
+      // Adicione aqui o código que deseja executar quando o botão for pressionado
+  };
 
   return (
    <View style={styles.container}>
@@ -28,16 +37,30 @@ const App = () => {
       <TextInput style={styles.input} placeholder="Digite sua senha"
       onChangeText={(texto) => setSenha(texto)}
       defaultValue={senha}
+      secureTextEntry
       />
 
-      <Text style={styles.entrar}> Entrar </Text> 
+      <TouchableOpacity onPress={handleLogin}>  
+        <Text style={styles.entrar}> Entrar </Text> 
+      </TouchableOpacity>
 
       <View style={styles.footer}>
       
-      {/* <Pressable style={styles.esqueceuSenha} onPress={onPressFunction}> <Text> Esqueceu sua senha? </Text> </Pressable>
+      <Pressable onPress={onPressHandler}>
+        {({ pressed }) => (
+          <Text style={[styles.esqueceuSenha, pressed && styles.pressedText]}>
+            Esqueceu sua senha?
+          </Text>
+        )}
+      </Pressable>
 
-      <Pressable style={styles.cad} onPress={onPressFunction}> <Text> Cadastre-se </Text> </Pressable>
-       */}
+      <Pressable onPress={onPressHandler}>
+        {({ pressed }) => (
+          <Text style={[styles.cad, pressed && styles.pressedText]}>
+            Cadastre-se
+          </Text>
+        )}
+      </Pressable>
       </View>
       </View>
    </View>
@@ -81,7 +104,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
     textAlign: 'center',
-    width: 125,
+    width: 190,
     margin: 11,
     borderColor: 'white',
     backgroundColor: 'black',
@@ -101,6 +124,10 @@ esqueceuSenha:{
 },
 cad:{
   margin: 3
+},
+pressedText:{
+  color: 'black',
+  backgroundColor: 'white'
 }
  
 });

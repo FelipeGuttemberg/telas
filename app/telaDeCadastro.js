@@ -1,4 +1,5 @@
 import { Text, TextInput, View, StyleSheet } from 'react-native';
+import {Link} from 'expo-router';
 
 const App = () => {
   return (
